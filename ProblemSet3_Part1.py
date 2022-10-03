@@ -19,10 +19,17 @@ elevation = 20322
 print(f"{mountain}, formerly\nknown as \"{nickname}\" \nis {elevation} above sea level")
 
 #%% Task 2
+
 data_folder = "W:\859_data\\tri_state"
 data_list = ["roads.shp", "road_types.dbf", "naip_imagery.tif"]
+data_list = list(data_list)
 user_item = "streams.shp"
 data_list.append(user_item)
 
-for x in data_list:
-    print(x)
+for item in data_list:
+    print(f"{data_folder}\\{item}")
+
+#%% Task 3
+
+user_numbers=[]
+user_int = int(input("Enter an integer: "))
