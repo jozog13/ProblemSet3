@@ -67,7 +67,7 @@ fleetName = vesselDict[vesselID]
 
 print(f'Vessel # {vesselID} flies the flag of {fleetName}')
 
-#%% Task 5 - set up
+#%% Task 5 - get data
 
 #Create a Python file object, i.e., a link to the file's contents
 fileObj = open(file='loitering_events_20180723.csv', mode='r')
