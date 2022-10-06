@@ -67,7 +67,7 @@ fleetName = vesselDict[vesselID]
 
 print(f'Vessel # {vesselID} flies the flag of {fleetName}')
 
-#%% Task 5
+#%% Task 5 - set up
 
 #Create a Python file object, i.e., a link to the file's contents
 fileObj = open(file='loitering_events_20180723.csv', mode='r')
@@ -87,6 +87,8 @@ print(headerLineString2)
 #Split the headerLineString2 into a list of header items
 headerItems2 = headerLineString2.split(',')
 
+#%% Task 5 - index values 
+
 #List the index of the transshipmet_mmsi, starting and ending latitude, and starting longitude
 mmsi_idx = headerItems2.index("transshipment_mmsi")
 s_lat_idx = headerItems2.index("starting_latitude")
@@ -96,6 +98,11 @@ s_long_idx = headerItems2.index("starting_longitude")
 # print index values for variables
 print(mmsi_idx, s_lat_idx, e_lat_idx, s_long_idx)
 
+#%% Task 5 - for loop
+
+# set initial boolean variable to false
+criteria = False
+
 #Iterate through all lines (except the header) in the data file:
 for lineString in lineList2[1:]:
    
@@ -104,13 +111,21 @@ for lineString in lineList2[1:]:
 
     #Extract the mmsi, start and end latitudes, and start longitude
     mmsi = lineData2[mmsi_idx]
-    s_lat = lineData2[s_lat_idx]
-    e_lat = lineData2[e_lat_idx]
-    s_long = lineData2[s_long_idx]
+    s_lat = float(lineData2[s_lat_idx])
+    e_lat = float(lineData2[e_lat_idx])
+    s_long = float(lineData2[s_long_idx])
 
     # examine if vessel crosses the equator from S to N (s_lat and e_lat)
     # vessel crosses equator if s_lat is negative and e_lat is positive 
-    
-    
+    if s_lat < 0  and e_lat > 0:
+        if s_long > 165 and s_long < 170:
+            # boolean var set to true if vessel meets both criteria
+            criteria = True 
+            # extract fleet name from dict with mmsi
+            fleet = vesselDict[mmsi] 
+            print(f'Vessel #{mmsi} flies the flag of {fleet}')
 
-
+# print statement if no vesses meet criteria 
+# (i.e. if criteria is never set equal to True)
+if criteria == False:
+    print("No vessels met criteria")
