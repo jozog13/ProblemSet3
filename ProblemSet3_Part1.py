@@ -14,10 +14,12 @@ mountain = "Denali"
 nickname = 'Mt. McKinley'
 elevation = 20322 
 
-#print (mountain + ", formerly known as "" + nickname + ",)
-#print ()"is " + elevation + '' above sea level.' )
+print (mountain + ", formerly\nknown as \"" + nickname + "\"")
+print ("is " + str(elevation) + '\' above sea level.' )
 
-print(f"{mountain}, formerly\nknown as \"{nickname}\" \nis {elevation} above sea level")
+# more edited versions
+#print(f"{mountain}, formerly\nknown as \"{nickname}\" \nis {elevation} above sea level")
+#print(mountain + ", formerly\nknown as \"" + nickname + "\"\nis " + str(elevation) + "\' above sea level.")
 
 #%% Task 2
 
