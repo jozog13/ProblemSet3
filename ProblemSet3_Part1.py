@@ -23,7 +23,7 @@ print ("is " + str(elevation) + '\' above sea level.' )
 
 #%% Task 2
 
-data_folder = r"W:\859_data\tri_state"
+data_folder = r"U:\859_data\tri_state"
 data_list = ["roads.shp", "road_types.dbf", "naip_imagery.tif"]
 #data_list = list(data_list)
 user_item = "streams.shp"
